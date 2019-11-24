@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_232553) do
+ActiveRecord::Schema.define(version: 2019_11_24_232925) do
 
   create_table "colours", force: :cascade do |t|
     t.string "name"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2019_11_24_232553) do
     t.index ["teddybear_id"], name: "index_teddy_bear_colours_on_teddybear_id"
   end
 
+  create_table "teddy_bear_orders", force: :cascade do |t|
+    t.integer "teddybear_id", null: false
+    t.integer "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_teddy_bear_orders_on_order_id"
+    t.index ["teddybear_id"], name: "index_teddy_bear_orders_on_teddybear_id"
+  end
+
   create_table "teddy_bears", force: :cascade do |t|
     t.string "name"
     t.string "colour"
@@ -65,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_11_24_232553) do
 
   add_foreign_key "teddy_bear_colours", "colours"
   add_foreign_key "teddy_bear_colours", "teddybears"
+  add_foreign_key "teddy_bear_orders", "orders"
+  add_foreign_key "teddy_bear_orders", "teddybears"
   add_foreign_key "teddy_bears", "sizes"
   add_foreign_key "teddy_bears", "statuses"
 end
