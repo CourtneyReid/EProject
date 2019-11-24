@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_225412) do
+ActiveRecord::Schema.define(version: 2019_11_24_231713) do
 
   create_table "colours", force: :cascade do |t|
     t.string "name"
@@ -41,4 +41,19 @@ ActiveRecord::Schema.define(version: 2019_11_24_225412) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "teddy_bears", force: :cascade do |t|
+    t.string "name"
+    t.string "colour"
+    t.string "description"
+    t.integer "cost"
+    t.integer "size_id", null: false
+    t.integer "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["size_id"], name: "index_teddy_bears_on_size_id"
+    t.index ["status_id"], name: "index_teddy_bears_on_status_id"
+  end
+
+  add_foreign_key "teddy_bears", "sizes"
+  add_foreign_key "teddy_bears", "statuses"
 end
