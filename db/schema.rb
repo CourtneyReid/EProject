@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_231713) do
+ActiveRecord::Schema.define(version: 2019_11_24_232553) do
 
   create_table "colours", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_11_24_231713) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "teddy_bear_colours", force: :cascade do |t|
+    t.integer "teddybear_id", null: false
+    t.integer "colour_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["colour_id"], name: "index_teddy_bear_colours_on_colour_id"
+    t.index ["teddybear_id"], name: "index_teddy_bear_colours_on_teddybear_id"
+  end
+
   create_table "teddy_bears", force: :cascade do |t|
     t.string "name"
     t.string "colour"
@@ -54,6 +63,8 @@ ActiveRecord::Schema.define(version: 2019_11_24_231713) do
     t.index ["status_id"], name: "index_teddy_bears_on_status_id"
   end
 
+  add_foreign_key "teddy_bear_colours", "colours"
+  add_foreign_key "teddy_bear_colours", "teddybears"
   add_foreign_key "teddy_bears", "sizes"
   add_foreign_key "teddy_bears", "statuses"
 end
