@@ -1,0 +1,2 @@
+class TeddyBear < ApplicationRecord
+end
