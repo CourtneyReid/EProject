@@ -1,2 +1,6 @@
-<h1>Teddybears#show</h1>
-<p>Find me in app/views/teddybears/show.html.erb</p>
+<h1><%= @teddybear.name %></h1>
+<p> Description: <%= @teddybear.description %></p>
+<p> Cost: $<%= @teddybear.cost %></p>
+<p> Size: <%= @teddybear.size.name %></p>
+<p> Status: <%= @teddybear.status.name %></p>
+<p> Colour: <%= @teddybear.colour.name %></p>

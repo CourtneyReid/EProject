@@ -5,5 +5,7 @@ class TeddybearsController < ApplicationController
     @teddybears = TeddyBear.all
   end
 
-  def show; end
+  def show
+    @teddybear = TeddyBear.find(params[:id])
+  end
 end

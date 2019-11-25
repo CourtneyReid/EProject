@@ -1,2 +1,5 @@
-<h1>Colours#index</h1>
-<p>Find me in app/views/colours/index.html.erb</p>
+<h1>Teddy Bear Land Colours</h1>
+
+<% @colours.each do |colour| %>
+  <h2><%= colour.name %></h2>
+<% end %>

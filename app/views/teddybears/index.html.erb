@@ -1,5 +1,6 @@
 <h1>Teddy Bear Land</h1>
 
 <% @teddybears.each do |teddybear| %>
-  <h2><%= teddybear.name %></h2>
+  <h2><a href="/teddybears/<%= teddybear.id %>"><%= teddybear.name %></a></h2>
+  <%# <h2><%= link_to teddybear.name, teddybear_path(teddybear) %>
 <% end %>

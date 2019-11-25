@@ -15,16 +15,27 @@ Size.create(name: 'Medium', description: 'I am not too big and not too small!')
 Size.create(name: 'Large', description: 'I am a life size cuddle buddy!')
 Size.create(name: 'Gigantic', description: 'I will not fit through your door!')
 
-1.times do
-  Colour.create(
-    name: Faker::Color.color_name
+20.times do
+  colour = Colour.create(
+    name: Faker::Color.unique.color_name
   )
-  100.times do
+  5.times do
+    # status_offset = rand(Status.count)
+    # rand_status = Status.offset(status_offset).first
+    # size_offset = rand(Size.count)
+    # rand_size = Size.offset(size_offset).first
+
     TeddyBear.create(
-      name: Faker::FunnyName.name,
-      colour: Faker::Color.color_name,
+      name: Faker::FunnyName.unique.name,
+      colour: colour.id,
       description: Faker::TvShows::FamilyGuy.quote,
-      cost: Faker::Number.decimal(l_digits: 2)
+      cost: Faker::Number.decimal(l_digits: 2),
+
+      status: Status.first,
+      size: Size.first
+      # status: rand_status.id,
+      # size: rand_size.id
     )
   end
+  puts 'Colours created!'
 end

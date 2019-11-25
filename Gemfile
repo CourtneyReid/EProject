@@ -25,7 +25,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Added Gems By ME
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-
+gem 'activeadmin'
+gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
