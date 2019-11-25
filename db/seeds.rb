@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+TeddyBear.destroy_all
 Status.destroy_all
 Size.destroy_all
 Colour.destroy_all
-TeddyBear.destroy_all
 
 Status.create(name: 'Clearance', description: 'This must go!')
 Status.create(name: 'On Sale', description: 'Gotta love a deal!')
@@ -27,7 +27,7 @@ Size.create(name: 'Gigantic', description: 'I will not fit through your door!')
 
     TeddyBear.create(
       name: Faker::FunnyName.unique.name,
-      colour: colour.id,
+      colour_id: colour.id,
       description: Faker::TvShows::FamilyGuy.quote,
       cost: Faker::Number.decimal(l_digits: 2),
 
@@ -37,5 +37,5 @@ Size.create(name: 'Gigantic', description: 'I will not fit through your door!')
       # size: rand_size.id
     )
   end
-  puts 'Colours created!'
 end
+puts 'Colours created!'
