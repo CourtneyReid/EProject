@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_013702) do
+ActiveRecord::Schema.define(version: 2019_11_25_014243) do
 
   create_table "colours", force: :cascade do |t|
     t.string "name"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_013702) do
     t.integer "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cost"
+    t.integer "quantity"
     t.index ["order_id"], name: "index_teddy_bear_orders_on_order_id"
     t.index ["teddybear_id"], name: "index_teddy_bear_orders_on_teddybear_id"
   end
