@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'orders/index'
+  get 'orders/show'
+  get 'sizes/index'
+  get 'sizes/show'
   get 'colours/index'
   get 'colours/show'
   get 'teddybears/index'
@@ -11,6 +15,10 @@ Rails.application.routes.draw do
   get '/teddybears/:id', to: 'teddybears#show', id: /\d+/
   get '/colours', to: 'colours#index'
   get '/colours/:id', to: 'colours#show', id: /\d+/
+  get '/sizes', to: 'sizes#index'
+  get '/sizes/:id', to: 'sizes#show', id: /\d+/
+  get '/orders', to: 'orders#index'
+  get '/orders/:id', to: 'orders#show', id: /\d+/
 
   root to: 'teddybears#index'
 end
