@@ -8,6 +8,7 @@ Colour.destroy_all
 Status.create(name: 'Clearance', description: 'This must go!')
 Status.create(name: 'On Sale', description: 'Gotta love a deal!')
 Status.create(name: 'New Product', description: 'You must get me first!')
+Status.create(name: 'Regular Product', description: 'Everday normal guy!')
 
 Size.create(name: 'Tiny', description: 'I am itty bitty!')
 Size.create(name: 'Small', description: 'Just a wee twig wishin I were a tree!')
@@ -39,3 +40,4 @@ Size.create(name: 'Gigantic', description: 'I will not fit through your door!')
   end
 end
 puts 'Colours created!'
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
