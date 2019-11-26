@@ -40,4 +40,7 @@ Size.create(name: 'Gigantic', description: 'I will not fit through your door!')
   end
 end
 puts 'Colours created!'
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+end

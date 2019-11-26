@@ -3,6 +3,7 @@
 class TeddybearsController < ApplicationController
   def index
     @teddybears = TeddyBear.all
+    @teddybears = TeddyBear.order('name').page(params[:page]).per(5)
   end
 
   def show
