@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class TeddyBear < ApplicationRecord
-  belongs_to :size
   belongs_to :status
   belongs_to :colour
 
   has_many :teddy_bear_orders
   has_many :orders, through: :teddy_bear_orders
-  # validates :size, :status, presence: true, allow_blank: false
+  # validates :status, presence: true, allow_blank: false
 end

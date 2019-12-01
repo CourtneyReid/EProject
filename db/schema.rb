@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_235549) do
+ActiveRecord::Schema.define(version: 2019_12_01_222731) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -92,11 +92,9 @@ ActiveRecord::Schema.define(version: 2019_11_25_235549) do
     t.integer "colour_id"
     t.string "description"
     t.integer "cost"
-    t.integer "size_id", null: false
     t.integer "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["size_id"], name: "index_teddy_bears_on_size_id"
     t.index ["status_id"], name: "index_teddy_bears_on_status_id"
   end
 
@@ -104,6 +102,5 @@ ActiveRecord::Schema.define(version: 2019_11_25_235549) do
   add_foreign_key "teddy_bear_colours", "teddy_bears"
   add_foreign_key "teddy_bear_orders", "orders"
   add_foreign_key "teddy_bear_orders", "teddy_bears"
-  add_foreign_key "teddy_bears", "sizes"
   add_foreign_key "teddy_bears", "statuses"
 end
