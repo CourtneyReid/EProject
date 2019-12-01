@@ -68,23 +68,23 @@ ActiveRecord::Schema.define(version: 2019_11_25_235549) do
   end
 
   create_table "teddy_bear_colours", force: :cascade do |t|
-    t.integer "teddybear_id", null: false
+    t.integer "teddy_bear_id", null: false
     t.integer "colour_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["colour_id"], name: "index_teddy_bear_colours_on_colour_id"
-    t.index ["teddybear_id"], name: "index_teddy_bear_colours_on_teddybear_id"
+    t.index ["teddy_bear_id"], name: "index_teddy_bear_colours_on_teddy_bear_id"
   end
 
   create_table "teddy_bear_orders", force: :cascade do |t|
-    t.integer "teddybear_id", null: false
+    t.integer "teddy_bear_id", null: false
     t.integer "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "cost"
     t.integer "quantity"
     t.index ["order_id"], name: "index_teddy_bear_orders_on_order_id"
-    t.index ["teddybear_id"], name: "index_teddy_bear_orders_on_teddybear_id"
+    t.index ["teddy_bear_id"], name: "index_teddy_bear_orders_on_teddy_bear_id"
   end
 
   create_table "teddy_bears", force: :cascade do |t|
@@ -101,9 +101,9 @@ ActiveRecord::Schema.define(version: 2019_11_25_235549) do
   end
 
   add_foreign_key "teddy_bear_colours", "colours"
-  add_foreign_key "teddy_bear_colours", "teddybears"
+  add_foreign_key "teddy_bear_colours", "teddy_bears"
   add_foreign_key "teddy_bear_orders", "orders"
-  add_foreign_key "teddy_bear_orders", "teddybears"
+  add_foreign_key "teddy_bear_orders", "teddy_bears"
   add_foreign_key "teddy_bears", "sizes"
   add_foreign_key "teddy_bears", "statuses"
 end
